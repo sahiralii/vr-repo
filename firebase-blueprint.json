@@ -1,0 +1,25 @@
+{
+  "entities": {
+    "booking": {
+      "title": "Booking",
+      "description": "An appointment booking at the salon.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Client full name" },
+        "phone": { "type": "string", "description": "Client phone number" },
+        "serviceId": { "type": "string", "description": "ID of the selected service" },
+        "serviceName": { "type": "string", "description": "Name of the selected service" },
+        "date": { "type": "string", "description": "Date of appointment (YYYY-MM-DD)" },
+        "time": { "type": "string", "description": "Time of appointment (HH:MM)" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": ["name", "phone", "serviceId", "serviceName", "date", "time", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/bookings/{bookingId}": {
+      "schema": "booking",
+      "description": "Collection of all appointment bookings."
+    }
+  }
+}
